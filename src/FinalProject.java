@@ -25,6 +25,7 @@ public class FinalProject extends DefaultHandler  {
 //			System.out.println(tokens);
 			if ( tokens.get(0).equalsIgnoreCase("CONFIGURATION") )  {
 				fileToParse = tokens.get(1);
+				System.out.println( fileToParse + " is ready to be queried." );
 			}
 			else if ( tokens.get(0).equalsIgnoreCase("DPDevice") )  {
 				if ( tokens.size() == 1 ) {
