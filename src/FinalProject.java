@@ -95,7 +95,7 @@ public class FinalProject extends DefaultHandler  {
 	        "Error parsing " + fileToParse + ": " + e;
 	      System.err.println(errorMessage);
 	      e.printStackTrace();
-	    }	
+	    }
 
 	}
 
