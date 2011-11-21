@@ -55,3 +55,14 @@ CSC 541 Final Project
 		-> from the menu select "Existing projects into workspace" and click Next
 		-> select the archive file and click Finish
 		-> right click on the project and click "Export"
+		-> select "JAR File" from the "JAVA" menu
+		-> be sure that all files in the package are selected
+		-> select a location and name for the new .jar file and click "Next"
+		-> click "Next" again and then select "Use Existing Manifest From Workspace" then 
+			click "Browse"
+		-> under "src" -> "com.smalexa2.csc541" select the file named "Manifest" then click "OK"
+		-> click "Finish" to create the .jar file.
+
+	To run the compiled file, open a command window in the directory with the new .jar file
+		and type:
+			java -jar <new_jar_file>
