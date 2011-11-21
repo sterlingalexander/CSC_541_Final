@@ -45,5 +45,13 @@ CSC 541 Final Project
 			files above.
 		-> Run the following command from the command prompt:
 			- java -jar 541_final.jar
+			
+		-> NOTE:  The program does not test for the existence of the input file
+			specified during the "Configuration" command.  Exceptions are generated
+			if the file does not exist.
 
-	-- TO DO -- COMPILE INSTRUCTIONS
+	-- Compile instructions
+		-> open Eclipse and select File -> Import
+		-> from the menu select "Existing projects into workspace" and click Next
+		-> select the archive file and click Finish
+		-> right click on the project and click "Export"

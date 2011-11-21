@@ -1,4 +1,5 @@
 package com.smalexa2.csc541;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import javax.xml.parsers.*;
@@ -18,7 +19,7 @@ public class FinalProject extends DefaultHandler  {
 		String fileToParse = "";
 		ArrayList<String> tokens = new ArrayList<String>();
 		Scanner scan = new Scanner(System.in);
-		
+		System.out.println("\nReady to accept input...\n");
 		while ( true ) {
 			input = scan.nextLine();
 			StringTokenizer tokenInput = new StringTokenizer(input);
@@ -26,7 +27,7 @@ public class FinalProject extends DefaultHandler  {
 			try {
 				if ( tokens.get(0).equalsIgnoreCase("CONFIGURATION") )  {
 					fileToParse = tokens.get(1);
-					System.out.println( fileToParse + " is ready to be queried." );
+					System.out.println( fileToParse + " will now be parsed." );
 				}
 				else if ( tokens.get(0).equalsIgnoreCase("DPDevice") )  {
 					if ( tokens.size() == 1 ) {
@@ -152,7 +153,11 @@ public class FinalProject extends DefaultHandler  {
 	    try {
 	      SAXParser parser = factory.newSAXParser();
 	      parser.parse(fileToParse, handler);
-	    } 
+	    }
+	    catch (FileNotFoundException e)  {
+	    	System.out.println("\nThe file specified using the \"Configuration\" command is " +
+	    			"invalid.\n");
+	    }
 	    catch(Exception e) {
 	      String errorMessage = "Error parsing " + fileToParse + ": " + e;
 	      System.err.println(errorMessage);
@@ -181,6 +186,8 @@ public class FinalProject extends DefaultHandler  {
 		System.out.println("DeploymentPolicy <policy_id> Serviceendpoint <serviceendpoint_id>");
 		System.out.println("\tLists all the attributes of the requested service end point that \n" +
 				"\tis associated with the requested deployment policy.");
+		System.out.println("End");
+		System.out.println("\tExits the program.");
 		System.out.println("============================================================");
 	}
 }
