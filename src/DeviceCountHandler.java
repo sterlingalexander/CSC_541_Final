@@ -74,7 +74,7 @@ public class DeviceCountHandler extends DefaultHandler {
    */
 
   public void endDocument() throws SAXException {
-    String message = "Total number of DPDevices is:  " + currentCount; 
+    String message = "Result:  " + currentCount; 
     System.out.println(message);
   }
 }

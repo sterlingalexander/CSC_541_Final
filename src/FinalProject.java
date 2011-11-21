@@ -33,7 +33,8 @@ public class FinalProject extends DefaultHandler  {
 					count( tokens.get(0), fileToParse );
 				}
 				else if ( tokens.size() == 3 )  {
-					System.out.println("Shoudl print number of domains for DPDevices");
+					System.out.println("Should print number of domains for DPDevices");
+					countDomains( tokens.get(1), fileToParse );
 				}
 				else if ( tokens.size() == 5 )  {
 					System.out.println("Should print number of deployment policies in" +
@@ -78,7 +79,24 @@ public class FinalProject extends DefaultHandler  {
 	        "Error parsing " + fileToParse + ": " + e;
 	      System.err.println(errorMessage);
 	      e.printStackTrace();
-	    }	}
+	    }	
+	}
+	
+	public static void countDomains( String deviceName, String fileToParse )  {
+
+		DefaultHandler handler = new DomainsInDeviceHandler(deviceName);
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+	    try {
+	      SAXParser parser = factory.newSAXParser();
+	      parser.parse(fileToParse, handler);
+	    } catch(Exception e) {
+	      String errorMessage =
+	        "Error parsing " + fileToParse + ": " + e;
+	      System.err.println(errorMessage);
+	      e.printStackTrace();
+	    }	
+
+	}
 	
     /*
         if (args.length == 1)  {
@@ -105,25 +123,4 @@ public class FinalProject extends DefaultHandler  {
         	System.out.println("Invalid parameters");
 	}
 	*/
-	
-	private void parseDocument(String fileToParse) {
-
-		//get a factory
-		SAXParserFactory spf = SAXParserFactory.newInstance();
-		try {
-
-			//get a new instance of parser
-			SAXParser sp = spf.newSAXParser();
-
-			//parse the file and also register this class for call backs
-			sp.parse(fileToParse, this);
-
-		}catch(SAXException se) {
-			se.printStackTrace();
-		}catch(ParserConfigurationException pce) {
-			pce.printStackTrace();
-		}catch (IOException ie) {
-			ie.printStackTrace();
-		}
-	}
 }
