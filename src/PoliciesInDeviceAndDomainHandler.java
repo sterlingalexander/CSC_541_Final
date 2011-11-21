@@ -1,7 +1,6 @@
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 
-
 /** A SAX parser handler 
  *  
  *  
@@ -73,16 +72,6 @@ public class PoliciesInDeviceAndDomainHandler extends DefaultHandler {
 			  this.domainFlag = false;
 		  }
 	  }
-  }
-
-  /** 
-   *  
-   *  
-   */
-
-
-  public void characters(char[] chars, int startIndex, int length)  {
-
   }
   
   /** 

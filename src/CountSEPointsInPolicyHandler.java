@@ -1,9 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
-
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
-
 
 /** A SAX parser handler 
  *  
@@ -65,15 +63,6 @@ public class CountSEPointsInPolicyHandler extends DefaultHandler {
 
   /** 
    *  
-   *  
-   */
-
-
-  public void characters(char[] chars, int startIndex, int length)  {
-	  
-  }
-  
-  /** 
    *  
    */
 

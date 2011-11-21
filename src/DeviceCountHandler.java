@@ -37,7 +37,6 @@ public class DeviceCountHandler extends DefaultHandler {
 	  } 
   }
 
-
   /** 
    *  
    */

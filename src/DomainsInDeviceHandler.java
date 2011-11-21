@@ -63,15 +63,6 @@ public class DomainsInDeviceHandler extends DefaultHandler {
    *  
    */
 
-
-  public void characters(char[] chars, int startIndex, int length)  {
-
-  }
-  
-  /** 
-   *  
-   */
-
   public void endDocument() throws SAXException {
     String message = "Result: " + count; 
     System.out.println(message);
