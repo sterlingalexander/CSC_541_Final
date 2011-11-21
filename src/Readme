@@ -1,3 +1,49 @@
-Main file is currently FinalProject.java.
+CSC 541 Final Project
+	- Based on Project 2
+	- Students:
+		Stephen Key (skey)
+		Sterling Alexander (smalexa2)
+		
+	- Submitted Files  (All source files are in the package com.smalexa2.csc541)
+	
+		- FinalProject.java 			
+			-> source file for XML parsing.
+		
+		- DeviceCountHandler.java 		
+			-> event handler for counting DPDevices.
+		
+		- DomainsInDeviceHandler.java	
+			-> event handler for counting DPDomains in a DPDevice config.
+		
+		- PoliciesInDeviceAndDomainHandler.java
+			-> event handler for counting deployment policies in a particular device 
+				and domain combination.
+		
+		- CountSEPointsInPolicyHandler.java
+			-> event handler for counting service end points in a particular 
+				deployment policy.
+		
+		- PolicyEndPointAttributesHandler.java
+			-> event handler to print the attributes of a requested service end point
+				that is associated with a particular deployment policy.
+		
+		- Manifest
+			-> file used to create .jar file from .java files.
+			
+		- 541_final.jar
+			-> compiled jar for this project.
+		
+		- Readme.txt
+			-> this file.
+			
+	- Usage instructions
+	
+		-> Place the following files in the same directory:
+			- 541_final.jar
+			- All XML files to parse
+		-> Open a command prompt and change directories to the location of the
+			files above.
+		-> Run the following command from the command prompt:
+			- java -jar 541_final.jar
 
-All others are SAX parsing examples.
+	-- TO DO -- COMPILE INSTRUCTIONS
