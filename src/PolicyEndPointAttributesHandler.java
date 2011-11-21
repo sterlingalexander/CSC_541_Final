@@ -61,8 +61,21 @@ import org.xml.sax.helpers.*;
 		
 	public void endElement(String namespaceUri, String localName, String qualifiedName)
 			throws SAXException  {
+		if ( this.deployPolicyFlag )  {
+			if (qualifiedName.equalsIgnoreCase("deploymentPolicy") )  {
+				this.deployPolicyFlag = false;
+			}
+		}
+	}
+	
+	/** 
+	*  
+	*  
+	*/
+	
+	public void endDocument() throws SAXException {
 		if ( !this.printFlag )  {
 			System.out.println(endPoint + " not found.");
 		}
-	}	
+	}
 }
