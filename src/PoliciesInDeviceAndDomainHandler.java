@@ -82,19 +82,7 @@ public class PoliciesInDeviceAndDomainHandler extends DefaultHandler {
 
 
   public void characters(char[] chars, int startIndex, int length)  {
-/*	  
-	  System.out.println("In Characters method");
-	  System.out.println("Start index:  " + startIndex);
-	  System.out.println("Length:  " + length);
-	  System.out.println("Device flag ==> " + deviceFlag );
-	  if ( deviceFlag )  {
-		  int si = startIndex;
-		  int ei = startIndex + length;
-		  char[] c = Arrays.copyOfRange(chars, si, ei); 
-		  System.out.println("Extracted String is:  " + new String(c) );
-		  System.out.println("About to set deviceFlat to False...");
-		  deviceFlag = false;
-	  }  */
+
   }
   
   /** 
@@ -102,7 +90,7 @@ public class PoliciesInDeviceAndDomainHandler extends DefaultHandler {
    */
 
   public void endDocument() throws SAXException {
-    String message = "Result:  " + count; 
+    String message = "Result: " + count; 
     System.out.println(message);
   }
 }

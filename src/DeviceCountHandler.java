@@ -37,24 +37,13 @@ public class DeviceCountHandler extends DefaultHandler {
 	  } 
   }
 
-  /** 
-   *  
-   */
 
-  /*
-  public void characters(char[] chars, int startIndex, int endIndex)  {
-	  
-	  if ( collectCount )  {
-		  currentCount++;
-	  }
-  }
-*/  
   /** 
    *  
    */
 
   public void endDocument() throws SAXException {
-    String message = "Result:  " + currentCount; 
+    String message = "Result: " + currentCount; 
     System.out.println(message);
   }
 }

@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 
@@ -19,6 +22,7 @@ public class CountSEPointsInPolicyHandler extends DefaultHandler {
 	private boolean deployPolicyFlag = false;
 	private int count = 0;
 	private String currDeployPolicy = "";
+	Set<String> endPoints = new HashSet<String>();
 
   /** 
    *  
@@ -29,17 +33,18 @@ public class CountSEPointsInPolicyHandler extends DefaultHandler {
                            Attributes attributes)  throws SAXException {
 		if ( !this.deployPolicyFlag )  {
 			if (qualifiedName.equalsIgnoreCase("deploymentPolicy") )  {
+				this.currDeployPolicy = attributes.getValue("xmi:id");
 //				System.out.println("What is the current device name...  I know, it's ==> " + attributes.getValue("xmi:id") );
 				if ( attributes.getValue("xmi:id").equalsIgnoreCase(this.deploymentPolicy) )  {
 					this.deployPolicyFlag = true;
-					this.currDeployPolicy = attributes.getValue("xmi:id");
 				}
 			}
 		}
 		else  {
 			if ( qualifiedName.equalsIgnoreCase("serviceend-point")  )  {
 				if (this.currDeployPolicy.equalsIgnoreCase(this.deploymentPolicy))  {
-				count++;
+					endPoints.add( attributes.getValue("xmi:id") );					
+					count++;
 				}
 			}
 		}
@@ -73,7 +78,7 @@ public class CountSEPointsInPolicyHandler extends DefaultHandler {
    */
 
   public void endDocument() throws SAXException {
-    String message = "Result:  " + count; 
+    String message = "Result: " + endPoints.size();
     System.out.println(message);
   }
 }
