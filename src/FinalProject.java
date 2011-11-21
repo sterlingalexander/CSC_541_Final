@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.*;
 
 import javax.xml.parsers.*;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -48,6 +47,7 @@ public class FinalProject extends DefaultHandler  {
 			else if ( tokens.get(0).equalsIgnoreCase("DeploymentPolicy") )  {
 				if ( tokens.size() == 3 )  {
 					System.out.println("Should list number of serivce end points in policy passed in");
+					countSEPointsInDomain(tokens.get(1), fileToParse);
 				}
 				else if ( tokens.size() == 5 )  {
 					System.out.println("Should list all attributes of serviceendpoint #id of " +
@@ -56,6 +56,9 @@ public class FinalProject extends DefaultHandler  {
 				else  {
 					System.out.println("Wrong number of args");
 				}
+			}
+			else if ( tokens.get(0).equalsIgnoreCase("end") )  {
+				System.exit(0);
 			}
 		}
 	}
@@ -96,7 +99,6 @@ public class FinalProject extends DefaultHandler  {
 	      System.err.println(errorMessage);
 	      e.printStackTrace();
 	    }
-
 	}
 
 	public static void countPoliciesInDeviceAndDomain( String deviceName, 
@@ -113,11 +115,25 @@ public class FinalProject extends DefaultHandler  {
 	      System.err.println(errorMessage);
 	      e.printStackTrace();
 	    }	
+	}
+	
+	public static void countSEPointsInDomain( String domainName, String fileToParse )  {
 
+		DefaultHandler handler = new CountSEPointsInPolicyHandler(domainName);
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+	    try {
+	      SAXParser parser = factory.newSAXParser();
+	      parser.parse(fileToParse, handler);
+	    } catch(Exception e) {
+	      String errorMessage =
+	        "Error parsing " + fileToParse + ": " + e;
+	      System.err.println(errorMessage);
+	      e.printStackTrace();
+	    }	
 	}
 
 	
-	// PoliciesInDeviceAndDomainHandler
+	// CountSEPointsInPolicy
 	
     /*
         if (args.length == 1)  {
