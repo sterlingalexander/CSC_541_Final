@@ -39,6 +39,7 @@ public class FinalProject extends DefaultHandler  {
 				else if ( tokens.size() == 5 )  {
 					System.out.println("Should print number of deployment policies in" +
 							"DPDevice id# and DPDomain id#");
+					countPoliciesInDeviceAndDomain(tokens.get(1), tokens.get(3), fileToParse);
 				}
 				else  {
 					System.out.println("Wrong number of args");
@@ -97,6 +98,26 @@ public class FinalProject extends DefaultHandler  {
 	    }	
 
 	}
+
+	public static void countPoliciesInDeviceAndDomain( String deviceName, 
+			String domainName, String fileToParse )  {
+
+		DefaultHandler handler = new PoliciesInDeviceAndDomainHandler(deviceName, domainName);
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+	    try {
+	      SAXParser parser = factory.newSAXParser();
+	      parser.parse(fileToParse, handler);
+	    } catch(Exception e) {
+	      String errorMessage =
+	        "Error parsing " + fileToParse + ": " + e;
+	      System.err.println(errorMessage);
+	      e.printStackTrace();
+	    }	
+
+	}
+
+	
+	// PoliciesInDeviceAndDomainHandler
 	
     /*
         if (args.length == 1)  {
